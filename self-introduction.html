@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About | mikannohako</title>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,47 +14,59 @@
         <h1>
             <a href="index.html">mikannohako</a>
         </h1>
-        <div class="sns-links">
-            <a href="https://github.com/mikannohako" target="_blank">
-                <img src="./images/GitHub-icon.png" alt="GitHub" width="24">
-            </a>
-            <a href="https://qiita.com/mikannohako" target="_blank">
-                <img src="./images/qiita-icon.png" alt="Qiita" width="24">
-            </a>
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-        </nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
     </header>
 
     <section class="hero">
-    <h2>自己紹介</h2>
-    <p>こんにちは！mikannohako です。<br>
-    普段は暇なときに気楽にプログラム書いています。
-    </p>
+        <h2>自己紹介</h2>
+        <p>こんにちは！mikannohako です。<br>
+        普段は暇なときに気楽にプログラム書いています。
+        </p>
     </section>
 
-    <section class="cards">
-    <div class="card">
-        <h3 h3>使用言語・ツール</h3>
-        <ul style="list-style: disc; text-align: left; max-width: 300px; margin: 0 auto;">
-            <li>Python（メイン、スクリプトや小ツール）</li>
-            <li>HTML/CSS（簡単なページ作成）</li>
-            <li>JavaScript（勉強中）</li>
-            <li>Git/GitHub（個人開発で利用）</li>
-        </ul>
-    </div>
-    <div class="card">
-        <h3 h3>保有資格</h3>
-        <ul style="list-style: disc; text-align: left; max-width: 300px; margin: 0 auto;">
-        <li>実用数学技能検定3級</li>
-        <!-- 他にあれば追加 -->
-        </ul>
-    </div>
+    <section class="intro-section">
+        <div class="intro-container">
+            <div class="intro-card">
+                <div class="card-icon-container">
+                    <span class="material-symbols-outlined card-main-icon">code</span>
+                </div>
+                <h3>使用言語・ツール</h3>
+                <ul class="intro-list">
+                    <li><span class="intro-badge">Python</span>メイン、スクリプトや小ツール</li>
+                    <li><span class="intro-badge">HTML/CSS</span>簡単なページ作成</li>
+                    <li><span class="intro-badge">C#</span>勉強中</li>
+                    <li><span class="intro-badge">Git/GitHub</span>個人開発で利用</li>
+                    <li><span class="intro-badge">VSCode</span>主な開発環境</li>
+                    <li><span class="intro-badge">GitHub Copilot</span>コード補完・コーディング補助</li>
+                </ul>
+            </div>
+            <div class="intro-card">
+                <div class="card-icon-container">
+                    <span class="material-symbols-outlined card-main-icon">workspace_premium</span>
+                </div>
+                <h3>保有資格</h3>
+                <ul class="intro-list">
+                    <li><span class="intro-badge success">数学検定</span>実用数学技能検定 3級</li>
+                    <li><span class="intro-badge success">国家資格</span>ITパスポート試験合格</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
     <footer>
-        &copy; 2025 mikannohako. All rights reserved.
+        <div class="footer-content">
+            <div class="sns-links">
+                <a href="https://github.com/mikannohako" target="_blank">
+                    <img src="./images/GitHub-icon.png" alt="GitHub" width="24">
+                </a>
+                <a href="https://qiita.com/mikannohako" target="_blank">
+                    <img src="./images/qiita-icon.png" alt="Qiita" width="24">
+                </a>
+            </div>
+            <p>&copy; 2026 mikannohako. All rights reserved.</p>
+        </div>
     </footer>
     <script src="main.js"></script>
 </body>

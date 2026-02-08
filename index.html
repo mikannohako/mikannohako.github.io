@@ -6,6 +6,7 @@
     <title>mikannohako Portfolio</title>
     <!-- 可愛いGoogle Fonts追加 -->
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,17 +14,9 @@
         <h1>
             <a href="index.html">mikannohako</a>
         </h1>
-        <div class="sns-links">
-            <a href="https://github.com/mikannohako" target="_blank">
-                <img src="./images/GitHub-icon.png" alt="GitHub" width="24">
-            </a>
-            <a href="https://qiita.com/mikannohako" target="_blank">
-                <img src="./images/qiita-icon.png" alt="Qiita" width="24">
-            </a>
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-        </nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
     </header>
 
     <section class="hero">
@@ -35,19 +28,19 @@
     <section class="cards">
     
         <a href="self-introduction.html" class="card">
-                <div class="card-icon">📚</div>
+                <div class="card-icon"><span class="material-symbols-outlined">person</span></div>
                 <h3>自己紹介</h3>
                 <p>資格勉強を進めてます！</p>
         </a>
-        
-        <a href="./development_diary.html" class="card">
-                <div class="card-icon">💻</div>
-                <h3>開発日記</h3>
-                <p>新しいツールを試作中！</p>
+
+        <a href="./career.html" class="card">
+                <div class="card-icon"><span class="material-symbols-outlined">timeline</span></div>
+                <h3>経歴</h3>
+                <p>これまでの活動履歴！</p>
         </a>
 
         <a href="./past_works.html" class="card">
-                <div class="card-icon">🌱</div>
+                <div class="card-icon"><span class="material-symbols-outlined">inventory_2</span></div>
                 <h3>段ボール箱</h3>
                 <p>過去に作ったソフトなど！</p>
         </a>
@@ -55,7 +48,17 @@
     </section>
 
     <footer>
-        &copy; 2025 mikannohako. All rights reserved.
+        <div class="footer-content">
+            <div class="sns-links">
+                <a href="https://github.com/mikannohako" target="_blank">
+                    <img src="./images/GitHub-icon.png" alt="GitHub" width="24">
+                </a>
+                <a href="https://qiita.com/mikannohako" target="_blank">
+                    <img src="./images/qiita-icon.png" alt="Qiita" width="24">
+                </a>
+            </div>
+            <p>&copy; 2026 mikannohako. All rights reserved.</p>
+        </div>
     </footer>
     <script src="main.js"></script>
 </body>

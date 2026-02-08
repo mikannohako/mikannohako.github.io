@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AACS - 自動出席確認システム | mikannohako</title>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>
+            <a href="../index.html">mikannohako</a>
+        </h1>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </header>
+
+    <section class="hero">
+        <h2>AACS - 自動出席確認システム</h2>
+        <p>Automatic Attendance Confirmation System</p>
+    </section>
+
+    <section class="project-detail">
+        <div class="detail-container">
+            
+            <div class="detail-section">
+                <div class="detail-icon">
+                    <span class="material-symbols-outlined">info</span>
+                </div>
+                <h3>プロジェクト概要</h3>
+                <p>
+                    AACSは、Python で開発した自動出席確認システムです。中学校の部活動において、
+                    従来の手書きによる出席管理の非効率性を解決するために開発しました。
+                    QRコード認証と顔認証の2つの方式に対応し、柔軟な運用が可能です。
+                </p>
+            </div>
+
+            <div class="detail-section">
+                <div class="detail-icon">
+                    <span class="material-symbols-outlined">emoji_objects</span>
+                </div>
+                <h3>開発の動機</h3>
+                <ul class="feature-list">
+                    <li>手書きの出席簿管理の手間を削減したい</li>
+                    <li>出席データの集計・分析を自動化したい</li>
+                    <li>不正な代理出席を防止したい</li>
+                    <li>リアルタイムで出席状況を把握したい</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <div class="detail-icon">
+                    <span class="material-symbols-outlined">settings</span>
+                </div>
+                <h3>主な機能</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="material-symbols-outlined feature-icon">qr_code_scanner</span>
+                        <h4>QRコード認証</h4>
+                        <p>個別に発行されたQRコードをスキャンして出席を記録</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="material-symbols-outlined feature-icon">face</span>
+                        <h4>顔認証システム</h4>
+                        <p>カメラで顔を読み取り、自動的に本人確認と出席記録</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="material-symbols-outlined feature-icon">analytics</span>
+                        <h4>データ集計</h4>
+                        <p>出席データを自動集計し、CSV形式で出力可能</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="material-symbols-outlined feature-icon">speed</span>
+                        <h4>高速処理</h4>
+                        <p>瞬時に認証を完了し、スムーズな出席確認を実現</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <div class="detail-icon">
+                    <span class="material-symbols-outlined">code</span>
+                </div>
+                <h3>使用技術</h3>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python 3.x</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">face_recognition</span>
+                    <span class="tech-tag">pyzbar</span>
+                    <span class="tech-tag">pandas</span>
+                    <span class="tech-tag">tkinter</span>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <div class="detail-icon">
+                    <span class="material-symbols-outlined">military_tech</span>
+                </div>
+                <h3>受賞歴</h3>
+                <p>
+                    本システムは、その実用性と技術力が評価され、
+                    <strong>総合教育展覧会の理科部門で優秀賞を受賞</strong>しました。
+                    実際の教育現場での課題解決に貢献できたことが高く評価されました。
+                </p>
+            </div>
+
+            <div class="detail-section">
+                <div class="detail-icon">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                </div>
+                <h3>今後の展望</h3>
+                <ul class="feature-list">
+                    <li>Web ベースのインターフェースの実装</li>
+                    <li>複数デバイスでの同時利用対応</li>
+                    <li>統計分析機能の強化</li>
+                    <li>他の学校・組織への展開</li>
+                </ul>
+            </div>
+
+            <div class="detail-links">
+                <a href="https://github.com/mikannohako/AACS-Automatic-Attendance-Confirmation-System" target="_blank" class="detail-button">
+                    <span class="material-symbols-outlined">code</span>
+                    GitHubで見る
+                </a>
+                <a href="../past_works.html" class="detail-button secondary">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    作品一覧に戻る
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="sns-links">
+                <a href="https://github.com/mikannohako" target="_blank">
+                    <img src="../images/GitHub-icon.png" alt="GitHub" width="24">
+                </a>
+                <a href="https://qiita.com/mikannohako" target="_blank">
+                    <img src="../images/qiita-icon.png" alt="Qiita" width="24">
+                </a>
+            </div>
+            <p>&copy; 2026 mikannohako. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../main.js"></script>
+</body>
+</html>
