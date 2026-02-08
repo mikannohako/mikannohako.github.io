@@ -1,10 +1,24 @@
 // main.js
-// サイドバーを読み込む
-document.addEventListener('DOMContentLoaded', () => {
-    // sidebar.htmlを読み込む
-    fetch('/sidebar.html')
+// サイドバーを読み込む関数
+function loadSidebar() {
+    // ページの場所に基づいて相対パスを決定
+    const pathSegments = window.location.pathname.split('/').filter(Boolean);
+    let sidebarPath = '/sidebar.html';
+    let linkPathPrefix = '';
+    
+    // creation/フォルダ内のページの場合
+    if (pathSegments.includes('creation')) {
+        sidebarPath = '../sidebar.html';
+        linkPathPrefix = '../';
+    }
+    
+    fetch(sidebarPath)
         .then(response => response.text())
         .then(html => {
+            // リンクのパスを調整
+            if (linkPathPrefix) {
+                html = html.replace(/href="(?!\.\.\/|#|https?:\/\/)([^/])/g, `href="${linkPathPrefix}$1`);
+            }
             const header = document.querySelector('header');
             if (header) {
                 header.insertAdjacentHTML('afterend', html);
@@ -12,25 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
         .catch(error => console.error('Failed to load sidebar:', error));
-});
-
-// creation/AACS.htmlの場合は相対パスを調整
-if (window.location.pathname.includes('/creation/')) {
-    document.addEventListener('DOMContentLoaded', () => {
-        fetch('../sidebar.html')
-            .then(response => response.text())
-            .then(html => {
-                // 相対パスを修正
-                html = html.replace(/href="([^/])/g, 'href="../$1');
-                const header = document.querySelector('header');
-                if (header) {
-                    header.insertAdjacentHTML('afterend', html);
-                    initMenuToggle();
-                }
-            })
-            .catch(error => console.error('Failed to load sidebar:', error));
-    });
 }
+
+// DOMContentLoadedで実行
+document.addEventListener('DOMContentLoaded', () => {
+    loadSidebar();
+    initScrollTextAnimation();
+    initCardAnimation();
+});
 
 function initMenuToggle() {
     const menuToggle = document.getElementById('menuToggle');
@@ -63,8 +66,9 @@ function initMenuToggle() {
     }
 }
 
-// スクロールテキストアニメーション
-document.addEventListener('DOMContentLoaded', () => {
+
+// スクロールテキストアニメーション関数
+function initScrollTextAnimation() {
     const scrollTexts = document.querySelectorAll('.scroll-text');
     
     // 各テキストの文字を個別のspanで囲む
@@ -111,11 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollTexts.forEach(text => {
         observer.observe(text);
     });
-});
+}
 
-// カードの浮き上がりアニメーション
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.card');
+// カードの浮き上がりアニメーション関数
+function initCardAnimation() {
+    // アニメーション対象の要素を取得
+    const elements = document.querySelectorAll('.card, .project-card, .intro-card, .timeline-node, .feature-card, .detail-section, .process-step, .roadmap-item');
     
     const cardObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
@@ -132,9 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: '0px'
     });
     
-    cards.forEach(card => {
-        cardObserver.observe(card);
+    elements.forEach(element => {
+        cardObserver.observe(element);
     });
-});
+}
 
 
