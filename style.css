@@ -12,7 +12,7 @@ body.menu-open {
 }
 
 h2 {
-    font-size: 60px;
+    font-size: clamp(24px, 5vw, 60px);
     font-weight: 700;
     color: #333;
     margin-bottom: 30px;
@@ -22,7 +22,7 @@ h2 {
 header {
     background: #7aa9ff;
     color: white;
-    padding: 20px 40px;
+    padding: clamp(15px, 4vw, 20px) clamp(20px, 6vw, 40px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -184,7 +184,7 @@ body.menu-open::before {
     font-variation-settings: 'FILL' 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     body {
         padding-right: 0;
     }
@@ -194,7 +194,20 @@ body.menu-open::before {
     }
 
     h2 {
-        font-size: 36px;
+        font-size: clamp(24px, 5vw, 36px);
+    }
+
+    .cards {
+        grid-template-columns: 1fr !important;
+    }
+
+    .scroll-text-section {
+        min-height: auto;
+        padding: 50px 20px;
+    }
+
+    .scroll-text-container {
+        gap: 80px;
     }
 }
 
@@ -304,7 +317,7 @@ nav a {
 }
 
 .hero-title {
-    font-size: 72px;
+    font-size: clamp(36px, 8vw, 72px);
     font-weight: 700;
     margin: 0 0 30px;
     color: #5f5f5f;
@@ -319,21 +332,51 @@ nav a {
 }
 
 .hero-subtitle {
-    font-size: 18px;
-    max-width: 600px;
+    font-size: clamp(14px, 3vw, 18px);
+    max-width: 90vw;
     margin: 0 auto;
     line-height: 1.5;
     color: #8b8b8b;
     text-shadow: 0 2px 10px rgba(0,0,0,0.1);
     animation: fadeInUp 0.8s ease-out 0.3s both;
-    white-space: nowrap;
     text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* スクロールインジケータ */
+.scroll-indicator {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-indicator .material-symbols-outlined {
+    font-size: 40px;
+    color: #7aa9ff;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(10px);
+        opacity: 0.7;
+    }
 }
 
 /* スクロールアニメーション */
 .scroll-text-section {
-    min-height: 150vh;
-    padding: 100px 20px;
+    min-height: auto;
+    padding: clamp(50px, 8vw, 100px) clamp(15px, 5vw, 20px) clamp(60px, 10vw, 150px);
     position: relative;
     z-index: 1;
     background: #f8fafc;
@@ -346,12 +389,12 @@ nav a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 60px;
-    padding: 50px 0;
+    gap: clamp(60px, 10vw, 150px);
+    padding: 0;
 }
 
 .scroll-text {
-    font-size: 48px;
+    font-size: clamp(24px, 6vw, 48px);
     font-weight: 700;
     line-height: 1.8;
     color: #1a1a1a;
@@ -479,9 +522,9 @@ nav a {
 }
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    padding: 60px 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(15px, 4vw, 30px);
+    padding: clamp(30px, 5vw, 60px) clamp(15px, 5vw, 40px);
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
@@ -492,7 +535,7 @@ nav a {
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     text-align: center;
-    padding: 30px 20px;
+    padding: clamp(15px, 3vw, 30px) clamp(10px, 3vw, 20px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
     color: inherit;
@@ -578,7 +621,7 @@ footer {
 
 /* タイムライン（経歴ページ） */
 .timeline-section {
-    padding: 60px 20px;
+    padding: clamp(30px, 5vw, 60px) clamp(15px, 5vw, 20px);
     max-width: 800px;
     margin: 0 auto;
 }
@@ -604,7 +647,7 @@ footer {
     margin-bottom: 50px;
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: clamp(20px, 4vw, 50px);
     opacity: 0;
     transform: translateY(40px);
 }
@@ -705,6 +748,8 @@ footer {
         flex-direction: column !important;
         align-items: flex-start;
         padding-left: 50px;
+        gap: 5px;
+        margin-bottom: 30px;
     }
 
     .timeline-node:nth-child(even) {
@@ -713,7 +758,9 @@ footer {
 
     .timeline-date {
         text-align: left !important;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+        font-size: 14px;
+        flex: 0 0 auto;
     }
 
     .timeline-content::before {
@@ -745,7 +792,7 @@ footer {
 }
 
 .projects {
-    padding: 40px 20px;
+    padding: clamp(30px, 5vw, 40px) clamp(15px, 5vw, 20px);
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
@@ -759,8 +806,8 @@ footer {
 
 .project-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: clamp(15px, 4vw, 30px);
     margin-bottom: 40px;
 }
 
@@ -841,7 +888,7 @@ footer {
 
 /* 自己紹介ページ */
 .intro-section {
-    padding: 60px 20px;
+    padding: clamp(30px, 5vw, 60px) clamp(15px, 5vw, 20px);
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -974,8 +1021,8 @@ footer {
 
 .process-section h2 {
     text-align: center;
-    margin-bottom: 60px;
-    font-size: 36px;
+    margin-bottom: clamp(30px, 5vw, 60px);
+    font-size: clamp(24px, 5vw, 36px);
     color: #333;
 }
 
@@ -986,13 +1033,13 @@ footer {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: clamp(10px, 3vw, 20px);
 }
 
 .process-step {
-    flex: 0 0 180px;
+    flex: 0 0 clamp(120px, 20vw, 180px);
     text-align: center;
-    padding: 30px 20px;
+    padding: clamp(15px, 3vw, 30px) clamp(10px, 2vw, 20px);
     background: white;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.08);
@@ -1067,14 +1114,14 @@ footer {
 
 /* ロードマップ */
 .roadmap-section {
-    padding: 80px 20px;
+    padding: clamp(40px, 8vw, 80px) clamp(15px, 5vw, 20px);
     background: #f8fafc;
 }
 
 .roadmap-section h2 {
     text-align: center;
-    margin-bottom: 60px;
-    font-size: 36px;
+    margin-bottom: clamp(30px, 5vw, 60px);
+    font-size: clamp(24px, 5vw, 36px);
     color: #333;
 }
 
@@ -1205,7 +1252,7 @@ footer {
 
 /* AACS詳細ページ */
 .project-detail {
-    padding: 40px 20px;
+    padding: clamp(20px, 4vw, 40px) clamp(15px, 5vw, 20px);
     max-width: 900px;
     margin: 0 auto;
 }

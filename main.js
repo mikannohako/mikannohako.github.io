@@ -142,4 +142,33 @@ function initCardAnimation() {
     });
 }
 
+// スクロールインジケータの表示/非表示
+function initScrollIndicator() {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    const scrollTextSection = document.querySelector('.scroll-text-section');
+    if (!scrollIndicator || !scrollTextSection) return;
 
+    window.addEventListener('scroll', () => {
+        // ポエムセクションの開始と終了位置を取得
+        const sectionStart = scrollTextSection.offsetTop;
+        const sectionEnd = scrollTextSection.offsetTop + scrollTextSection.offsetHeight;
+        const currentScroll = window.scrollY + window.innerHeight;
+        
+        // ポエムセクション内では非表示、それ以外では表示
+        if (currentScroll > sectionStart + 100) {
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.pointerEvents = 'none';
+        } else {
+            scrollIndicator.style.opacity = '1';
+            scrollIndicator.style.pointerEvents = 'auto';
+        }
+    });
+}
+
+// DOMContentLoadedで実行
+document.addEventListener('DOMContentLoaded', () => {
+    loadSidebar();
+    initScrollTextAnimation();
+    initCardAnimation();
+    initScrollIndicator();
+});
