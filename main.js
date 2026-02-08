@@ -63,4 +63,78 @@ function initMenuToggle() {
     }
 }
 
+// スクロールテキストアニメーション
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollTexts = document.querySelectorAll('.scroll-text');
+    
+    // 各テキストの文字を個別のspanで囲む
+    scrollTexts.forEach(text => {
+        const dataText = text.getAttribute('data-text');
+        if (dataText) {
+            // HTMLエンティティをデコード
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = dataText;
+            const plainText = tempDiv.textContent || tempDiv.innerText || '';
+            
+            // 文字ごとにspanで囲む
+            let html = '';
+            let charIndex = 0;
+            for (let i = 0; i < plainText.length; i++) {
+                const char = plainText[i];
+                if (char === '\n') {
+                    html += '<br>';
+                } else {
+                    html += `<span class="char" style="animation-delay: ${charIndex * 0.05}s;">${char}</span>`;
+                    charIndex++;
+                }
+            }
+            text.innerHTML = html;
+        }
+    });
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // 全ての文字要素にアニメーションクラスを追加
+                const chars = entry.target.querySelectorAll('.char');
+                chars.forEach(char => {
+                    char.classList.add('char-animate');
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5,
+        rootMargin: '-50px'
+    });
+    
+    scrollTexts.forEach(text => {
+        observer.observe(text);
+    });
+});
+
+// カードの浮き上がりアニメーション
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card');
+    
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // 遅延を追加して順番に表示
+                setTimeout(() => {
+                    entry.target.classList.add('card-animate');
+                }, index * 150);
+                cardObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px'
+    });
+    
+    cards.forEach(card => {
+        cardObserver.observe(card);
+    });
+});
+
 

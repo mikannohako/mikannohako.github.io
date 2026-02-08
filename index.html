@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <canvas id="webgl-canvas"></canvas>
     <header class="header">
         <h1>
             <a href="index.html">mikannohako</a>
@@ -20,8 +21,24 @@
     </header>
 
     <section class="hero">
-        <h2>Welcome to My Portfolio</h2>
-        <p>ここは、私の作った作品やプロジェクトをまとめたポートフォリオサイトです。</p>
+        <div class="hero-icons">
+            <span class="hero-icon hero-icon-1 material-symbols-outlined">lightbulb</span>
+            <span class="hero-icon hero-icon-2 material-symbols-outlined">auto_awesome</span>
+            <span class="hero-icon hero-icon-3 material-symbols-outlined">palette</span>
+            <span class="hero-icon hero-icon-4 material-symbols-outlined">architecture</span>
+            <span class="hero-icon hero-icon-5 material-symbols-outlined">interests</span>
+            <span class="hero-icon hero-icon-6 material-symbols-outlined">psychology</span>
+        </div>
+        <h1 class="hero-title">想像をかたちに</h1>
+        <p class="hero-subtitle">ここは、私の作った作品やプロジェクトをまとめたポートフォリオサイトです。</p>
+    </section>
+
+    <!-- スクロールアニメーション -->
+    <section class="scroll-text-section">
+        <div class="scroll-text-container">
+            <p class="scroll-text scroll-text-1" data-text="頭の中のアイデアを、&#10;現実のかたちに。"></p>
+            <p class="scroll-text scroll-text-2" data-text="まだ名前のない発想を、&#10;誰かの「好き」に変えるために。"></p>
+        </div>
     </section>
 
     <!-- 近況カード部分 -->
@@ -61,5 +78,6 @@
         </div>
     </footer>
     <script src="main.js"></script>
+    <script src="webgl-animation.js"></script>
 </body>
 </html>
